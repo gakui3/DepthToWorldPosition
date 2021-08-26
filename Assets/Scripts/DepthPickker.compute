@@ -17,8 +17,8 @@ float depthOffset;
 SamplerState _LinearClamp;
 SamplerState _PointClamp;
 
-const static uint depthTextureWidth = 63;
-const static uint depthTextureHeight = 84;
+const static uint depthTextureWidth = 192;
+const static uint depthTextureHeight = 256;
 
 float2 adjustUV(float2 uv)
 {
@@ -33,10 +33,7 @@ float map(float value, float min1, float max1, float min2, float max2) {
 [numthreads(1,1,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
-    float depthTextureWidth, depthTextureHeight;
     //depthTexture.GetDimensions(depthTextureHeight, depthTextureWidth);
-    depthTextureWidth = 63;
-    depthTextureHeight = 84;
     uint idx = id.x + id.y * (uint)depthTextureWidth;
 
     float2 uv = adjustUV(float2((float)id.x/depthTextureWidth, (float)id.y/depthTextureHeight));

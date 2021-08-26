@@ -23,8 +23,8 @@ public class DepthToWorldPosConverter : MonoBehaviour
     RenderTexture debugRT;
     Texture2D humanDepthTex;
 
-    const int depthTextureHeight = 84;
-    const int depthTextureWidth = 63;
+    const int depthTextureHeight = 256;
+    const int depthTextureWidth = 192;
     const float depthOffset = 1.0f;
 
     Vector3 screenPos;
@@ -123,7 +123,7 @@ public class DepthToWorldPosConverter : MonoBehaviour
     {
         if (humanDepthTex != null)
         {
-            Graphics.DrawTexture(new Rect(10, 10, depthTextureWidth * 5, depthTextureHeight * 5), debugRT);
+            Graphics.DrawTexture(new Rect(10, 10, depthTextureWidth * 3, depthTextureHeight * 3), debugRT);
         }
     }
 
